@@ -1,0 +1,79 @@
+<script>
+
+function weeksBetween(d1, d2) {
+    return Math.round((d2 - d1) / (7 * 24 * 60 * 60 * 1000));
+}
+
+
+/*
+// sunday is week 7, monday is week 6
+var weeks = weeksBetween(currentDate, targetDate) - 1
+
+console.log(weeks)
+console.log(currentDate.getDay())
+switch (currentDate.getDay()) {
+  case 0:
+    day = 0;
+    break;
+  case 1:
+    day = 3;
+    break;
+  case 2:
+     day = 2;
+    break;
+  case 3:
+    day = 2;
+    break;
+  case 4:
+    day = 1;
+    break;
+  case 5:
+    day = 1;
+    break;
+  case 6:
+    day = 0;
+}
+var daysLeft = ((weeks * 3)) + day
+
+
+console.log(daysLeft)
+*/
+
+function addDays(date, days) {
+  var result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
+}
+
+const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+var currentDate = new Date()//new Date('11 Aug 2020 20:30:00 GMT');
+var targetDate = new Date('3 Oct 2020 18:30:00 EST');
+
+const diffDays = Math.round(Math.abs(((currentDate - targetDate)) / oneDay));
+
+counter = 0;
+var dayOver;
+
+if(currentDate.getHours() <= 18){
+	dayOver = 1
+} 
+else{ 
+	dayOver = 0
+}
+
+for (i = dayOver; i < diffDays; i++){
+	day = addDays(currentDate, i);
+	//if it's not september 14th, 16th, or 18th, and it's a mwf, increment
+	if((day.getDay() == 1 || day.getDay() == 3 || day.getDay() == 5)){
+		if((day.getMonth() == 8 && (day.getDate() != 14 && day.getDate() != 16 && day.getDate() != 18) || day.getMonth() != 8)){
+			counter++;
+		}		
+	}
+}
+
+document.write(counter + " days left until my small fry can call it splitso!");
+
+
+
+
+</script>
