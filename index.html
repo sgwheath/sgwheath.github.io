@@ -1,44 +1,5 @@
 <script>
 
-function weeksBetween(d1, d2) {
-    return Math.round((d2 - d1) / (7 * 24 * 60 * 60 * 1000));
-}
-
-
-/*
-// sunday is week 7, monday is week 6
-var weeks = weeksBetween(currentDate, targetDate) - 1
-
-console.log(weeks)
-console.log(currentDate.getDay())
-switch (currentDate.getDay()) {
-  case 0:
-    day = 0;
-    break;
-  case 1:
-    day = 3;
-    break;
-  case 2:
-     day = 2;
-    break;
-  case 3:
-    day = 2;
-    break;
-  case 4:
-    day = 1;
-    break;
-  case 5:
-    day = 1;
-    break;
-  case 6:
-    day = 0;
-}
-var daysLeft = ((weeks * 3)) + day
-
-
-console.log(daysLeft)
-*/
-
 function addDays(date, days) {
   var result = new Date(date);
   result.setDate(result.getDate() + days);
